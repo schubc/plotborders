@@ -41,6 +41,7 @@ public class PlotUtils {
 		
         if(!be.checkPermissions(player)) {
         	player.sendMessage("Nicht genug rechte für "+be.getName());
+        	return false;
         }
         
         String mat=be.getMaterial();
