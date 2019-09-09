@@ -50,7 +50,8 @@ public class CommandHandler implements CommandExecutor {
 
             
         	if(args.length == 0) {
-        		player.sendMessage("Benutzung: /pb <wert>");        		
+        		player.sendMessage("Benutzung: /pb <wert>");
+        		return true;
         	}
             
             
@@ -112,7 +113,7 @@ public class CommandHandler implements CommandExecutor {
             	player.sendMessage("Du bist nicht auf einem Plot!");
             	return false;
             }
-            if (!plot.hasOwner() || !plot.isOwner(uuid)) {
+            if (!player.hasPermission("plots.admin")  && (!plot.hasOwner() || !plot.isOwner(uuid))) {
                 player.sendMessage("Das ist nicht dein Plot!");
                 return false;
             }            

@@ -1,6 +1,6 @@
  main: com.enteente.plotborder.Main
  name: plotborder
- version: 0.1
+ version: 0.2
  author: schubc
  description: Change borders of plotsquared plots
  commands:
