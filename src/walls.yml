@@ -1,0 +1,43 @@
+gold:
+  name: Goldwand
+  material: gold_block
+  groups:
+    - noob
+    - pro
+    - epic
+
+mix:
+  name: Gemischte Wand
+  material: gold_block:50,iron_block:50
+  groups:
+    - noob
+    - pro
+    - epic
+
+nature:
+  name: Naturwand
+  material: dirt:80,cobblestone:20
+  groups:
+    - noob
+    - pro
+    - epic
+
+sand:
+  name: Sandrand
+  material: sand
+  groups:
+    - pro
+    - epic
+
+beacon:
+  name: Beaconrand
+  material: beacon
+  groups:
+    - epic
+
+invalid:
+  name: Fehlertest
+  material: foobar
+  groups:
+    - epic
+    

@@ -21,21 +21,21 @@ public class Main extends JavaPlugin {
     private String version = packet.substring(packet.lastIndexOf('.') + 1);	
 	
     private Configs borderConfig;
+    private Configs wallConfig;
     
     private HashMap<String, BorderEntry> borders = new HashMap<>();
+    private HashMap<String, BorderEntry> walls = new HashMap<>();
 
     
 	@Override
     public void onEnable() {
     	
 		instance = this;
-    	//PlotPlayer.registerConverter(Player.class, BukkitUtil::getPlayer);
-    	getCommand("pb").setExecutor(new CommandHandler());
+    	getCommand("plotborder").setExecutor(new CommandHandler());
     	
-        //getServer().getPluginManager().registerEvents(new EventHandlers(), instance);
-
     	borderConfig=new Configs(this.getInstance(), "borders.yml", true);
-    	loadBorders();
+    	wallConfig=new Configs(this.getInstance(), "walls.yml", true);
+    	loadBordersAndWalls();
     }
     @Override
     public void onDisable() {
@@ -47,11 +47,20 @@ public class Main extends JavaPlugin {
     	}
     	return null;
     }
+
+    public BorderEntry getWall(String id) {
+    	if(this.walls.containsKey(id)) {
+    		return this.walls.get(id);
+    	}
+    	return null;
+    }    
     
     public Configs getBorderConfig() {
     	return borderConfig;
     }
-
+    public Configs getWallConfig() {
+    	return wallConfig;
+    }
     
     public static Main getInstance() {
         return instance;
@@ -61,7 +70,7 @@ public class Main extends JavaPlugin {
         return version;
     }
     
-    public void loadBorders() {
+    public void loadBordersAndWalls() {
     	if(!borders.isEmpty()) {
     		borders.clear();
     	}
@@ -75,7 +84,19 @@ public class Main extends JavaPlugin {
     		borders.put(key, be);
     		
     	}
-    	
+    	if(!walls.isEmpty()) {
+    		walls.clear();
+    	}
+    	for (String key : wallConfig.get().getConfigurationSection("").getKeys(false)) {
+    		
+    		String name=wallConfig.get().getString(key+".name");
+    		String material=wallConfig.get().getString(key+".material");
+    		List<String> permissions=(List<String>) wallConfig.get().getList(key+".groups");
+    		
+    		BorderEntry be=new BorderEntry(key, name, material, permissions);
+    		walls.put(key, be);
+    		
+    	}
     }
     
 }

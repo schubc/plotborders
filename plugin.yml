@@ -1,11 +1,10 @@
  main: com.enteente.plotborder.Main
  name: plotborder
- version: 0.2
+ version: 0.3
  author: schubc
  description: Change borders of plotsquared plots
  commands:
-     pb:
+     plotborder:
         description: change plot border
-        usage: /pb
-        permission: pb.border
-        permission-message: You don't have the permission.
+        usage: /pb <border|wall|reload> <type>
+        aliases: [pb, pborder]
