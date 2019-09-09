@@ -1,0 +1,43 @@
+standard:
+  name: Standardrand
+  material: stone_slab
+  groups:
+    - noob
+    - pro
+    - epic
+
+gold:
+  name: Goldrdrand
+  material: gold_block
+  groups:
+    - noob
+    - pro
+    - epic
+
+mix:
+  name: Gemischter Rand
+  material: gold_block:50,iron_block:50
+  groups:
+    - noob
+    - pro
+    - epic
+
+sand:
+  name: Sandrand
+  material: sand
+  groups:
+    - pro
+    - epic
+
+beacon:
+  name: Beaconrand
+  material: beacon
+  groups:
+    - epic
+
+invalid:
+  name: Fehlertest
+  material: foobar
+  groups:
+    - epic
+    
